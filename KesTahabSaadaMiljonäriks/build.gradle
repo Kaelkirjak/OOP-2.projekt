@@ -16,7 +16,7 @@ repositories {
 }
 
 application {
-    mainClassName = "KesTahabSaadaMiljonäriks2"
+    mainClassName = "KesTahabSaadaMiljonäriksV2"
 }
 
 dependencies {
