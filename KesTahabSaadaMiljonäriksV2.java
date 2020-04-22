@@ -40,17 +40,17 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
         StackPane juur = new StackPane(); // Juure loomine.
         Scene stseen1 = new Scene(juur, 900, 600);
 
-        Image img = new Image("file:raha.jpg"); // Võetakse pilt.
-        ImageView imgView = new ImageView(img);
-        juur.getChildren().add(imgView); // Lisatakse taustaks kasutas olev pilt.
+        Image pilt1 = new Image("file:raha.jpg"); // Võetakse pilt.
+        ImageView pildivaade1 = new ImageView(pilt1);
+        juur.getChildren().add(pildivaade1); // Lisatakse taustaks kasutas olev pilt.
 
         stseen1.widthProperty().addListener((objekt, vanaLaius, uusLaius) -> { // Kuular, mis kuulab, kas on stseeni akna laiust muudetud.
         });
-        imgView.fitWidthProperty().bind(stseen1.widthProperty()); // Muudetakse pildi laius sõltuvaks stseeni laiusega.
+        pildivaade1.fitWidthProperty().bind(stseen1.widthProperty()); // Muudetakse pildi laius sõltuvaks stseeni laiusega.
 
         stseen1.heightProperty().addListener((observable, oldValue, newValue) -> { // Kuular, mis kuulab, kas on stseeni akna kõrgust muudetud.
         });
-        imgView.fitHeightProperty().bind(stseen1.heightProperty()); // Muudetakse pildi kõrgus sõltuvaks stseeni kõrgusega.
+        pildivaade1.fitHeightProperty().bind(stseen1.heightProperty()); // Muudetakse pildi kõrgus sõltuvaks stseeni kõrgusega.
 
         VBox tutvustus = new VBox(); // Tehakse VBox, kuhu tuleb kõik tutvustav sisu, mis on esimeses aknas.
         tutvustus.setAlignment(Pos.BASELINE_CENTER); // VBoxi joondamine.
@@ -111,13 +111,13 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     Label teade = new Label("Palun sisestage oma nimi."); // Teate loomine.
 
                     // Teate gruppi paigutamine.
-                    VBox vBox = new VBox(10);
-                    vBox.setPadding(new Insets(12, 12, 12, 12));
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(teade);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setPadding(new Insets(12, 12, 12, 12));
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(teade);
 
                     // Stseeni loomine ja näitamine.
-                    Scene omaNimiStseen = new Scene(vBox);
+                    Scene omaNimiStseen = new Scene(vertikaalne);
                     omaNimi.setScene(omaNimiStseen);
                     omaNimi.show();
                 }
@@ -152,13 +152,13 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     Label puuduvadFailid = new Label("Kontrollige, kas teil on kaustas failid olemas ja käivitage uuesti programm"); // Teate loomine.
 
                     // Teate gruppi paigutamine.
-                    VBox vBox = new VBox(10);
-                    vBox.setPadding(new Insets(12, 12, 12, 12));
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(puuduvadFailid);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setPadding(new Insets(12, 12, 12, 12));
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(puuduvadFailid);
 
                     // Stseeni loomine ja näitamine.
-                    Scene failidePuudumineStseen = new Scene(vBox);
+                    Scene failidePuudumineStseen = new Scene(vertikaalne);
                     failidePuudumine.setScene(failidePuudumineStseen);
                     failidePuudumine.setTitle("Failide puudumine.");
                     failidePuudumine.show();
@@ -176,9 +176,9 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                 BorderPane juur1 = new BorderPane(); // Uus paigutus.
                 Stage küsimusteLava = new Stage();
 
-                Image img1 = new Image("file:raha2.jpg"); // Võetakse pilt.
-                ImageView img1View = new ImageView(img1);
-                juur1.getChildren().add(img1View); // Lisatakse pilt taustapildiks.
+                Image pilt = new Image("file:raha2.jpg"); // Võetakse pilt.
+                ImageView pildiVaade = new ImageView(pilt);
+                juur1.getChildren().add(pildiVaade); // Lisatakse pilt taustapildiks.
 
                 Label isikuNimi = new Label(); // Mängija nimi.
                 isikuNimi.setText("Mängija: " + mängijaNimi + ". Võidetav summa: " + mängija.getVõidusumma());// Tekstiks määratakse nimi ja võidetav summa.
@@ -339,12 +339,12 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     Stage auhinnaLava = new Stage(); // Lava loomine.
                     Label teade = new Label("Palju õnne! Võitsid miljoni."); // Teate loomine.
 
-                    VBox vBox = new VBox(10);
-                    vBox.setPadding(new Insets(12, 12, 12, 12));
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(teade);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setPadding(new Insets(12, 12, 12, 12));
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(teade);
 
-                    Scene auhinnaStseen = new Scene(vBox);
+                    Scene auhinnaStseen = new Scene(vertikaalne);
                     auhinnaLava.setScene(auhinnaStseen);
                     auhinnaLava.show();
                 });
@@ -438,9 +438,9 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
      * Meetod, mida kasutatakse muusika mängimiseks.
      */
     public void music() {
-        String s = "kahoot.mp3"; // Mängitava faili nimi.
-        Media h = new Media(Paths.get(s).toUri().toString());
-        mediaPlayer = new MediaPlayer(h);
+        String lauluFail = "kahoot.mp3"; // Mängitava faili nimi.
+        Media muusikaMasin = new Media(Paths.get(lauluFail).toUri().toString());
+        mediaPlayer = new MediaPlayer(muusikaMasin);
         mediaPlayer.play();
     }
 
@@ -455,27 +455,27 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
      * @param õige       Õige vastus.
      * @param mängija    Klassi mängija isend.
      * @param summa      Summa, mis on võimalik võita antud küsimuse õigesti vastamisel.
-     * @param label2     Silt, kus näidatakse mängija nime ja tema rahalist seisu.
+     * @param teave     Silt, kus näidatakse mängija nime ja tema rahalist seisu.
      * @param nimi       Mängija nimi.
      * @param vihjeTekst Vihje, mis käib antud küsimuse kohta.
      */
-    public static void küsimus(String küsimus1, String vv1, String vv2, String vv3, String vv4, String õige, Mängija mängija, int summa, Label label2, String nimi, String vihjeTekst) {
+    public static void küsimus(String küsimus1, String vv1, String vv2, String vv3, String vv4, String õige, Mängija mängija, int summa, Label teave, String nimi, String vihjeTekst) {
         Stage lava = new Stage(); // Lava loomine.
         BorderPane juur = new BorderPane(); // Juure loomine.
         final String[] vastuseValik = new String[1]; // Siia salvestatakse valitud vastus.
 
-        Text text = new Text(); // Tekstiväli taimeri jaoks, kus näidatakse sekundeid.
+        Text taimerTekst = new Text(); // Tekstiväli taimeri jaoks, kus näidatakse sekundeid.
         final int[] countDown = {60}; // Näitab, kui palju on aega vastamiseks. Antud juhul on selleks 1 minut ehk 60 sekundit.
 
         Label küsimus = new Label(küsimus1); // Küsimuse tekst.
 
-        VBox timerJaKüsimus = new VBox(küsimus, text); // Luuakse VBox, kuhu pannakse küsimus ja tekstiväli taimeri jaoks.
+        VBox timerJaKüsimus = new VBox(küsimus, taimerTekst); // Luuakse VBox, kuhu pannakse küsimus ja tekstiväli taimeri jaoks.
         juur.setTop(timerJaKüsimus); // Lisatakse juurele.
 
         Timeline loendamine = new Timeline(new KeyFrame(Duration.millis(1000), e -> {
             if (countDown[0] > 0) { // Kui loendur pole veel nulli jõudnud.
                 countDown[0]--; // Lahutatakse maha üks sekund.
-                text.setText("Taimer: " + countDown[0]); // Määratakse tekstiväljale, et mängija näeks palju tal veel aega on vastamiseks.
+                taimerTekst.setText("Taimer: " + countDown[0]); // Määratakse tekstiväljale, et mängija näeks palju tal veel aega on vastamiseks.
             } else { // Kui sekundid on jõudnud nullini, siis lõpetatakse mäng ja väljastatakse vastav teade.
                 Stage aegLäbiLava = new Stage(); // Lava loomine.
                 Label aegLäbiTeade = new Label("Jäite vastamisega hiljaks! Teie jaoks on mäng läbi."); // Teate loomine.
@@ -489,17 +489,17 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                 });
 
                 // Nuppude grupeerimine.
-                FlowPane pane = new FlowPane(10, 10);
-                pane.setAlignment(Pos.CENTER);
-                pane.getChildren().add(väljumiseNupp);
+                FlowPane grupeering = new FlowPane(10, 10);
+                grupeering.setAlignment(Pos.CENTER);
+                grupeering.getChildren().add(väljumiseNupp);
 
                 // Teate ja nupu gruppi paigutamine.
-                VBox vBox = new VBox(10);
-                vBox.setAlignment(Pos.CENTER);
-                vBox.getChildren().addAll(aegLäbiTeade, pane);
+                VBox vertikaalne = new VBox(10);
+                vertikaalne.setAlignment(Pos.CENTER);
+                vertikaalne.getChildren().addAll(aegLäbiTeade, grupeering);
 
                 // Stseeni loomine ja näitamine.
-                Scene aegLäbiStseen = new Scene(vBox);
+                Scene aegLäbiStseen = new Scene(vertikaalne);
                 aegLäbiLava.setScene(aegLäbiStseen);
                 aegLäbiLava.setTitle("Aeg läbi!");
                 aegLäbiLava.show();
@@ -511,13 +511,13 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
 
         // Valikvastuste listi loomine ja lisamine juurele (keskele).
         ListView<String> list = new ListView<>();
-        ObservableList<String> items = FXCollections.observableArrayList(vv1, vv2, vv3, vv4);
-        list.setItems(items);
+        ObservableList<String> valikVastused = FXCollections.observableArrayList(vv1, vv2, vv3, vv4);
+        list.setItems(valikVastused);
         juur.setCenter(list);
 
         // Valitud valikvastuse salvestamine.
-        list.getSelectionModel().selectedItemProperty().addListener((ov, oldValue, newValue) -> {
-            vastuseValik[0] = newValue; // Salvestatakse valitud vastusevariant.
+        list.getSelectionModel().selectedItemProperty().addListener((ov, oldValue, valitudVastus) -> {
+            vastuseValik[0] = valitudVastus; // Salvestatakse valitud vastusevariant.
         });
 
         // Teine juur, mis pannakse esimese juure alla.
@@ -542,17 +542,17 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     });
 
                     // Nupu grupeerimine.
-                    FlowPane pane = new FlowPane(5, 5);
-                    pane.setAlignment(Pos.CENTER);
-                    pane.getChildren().add(väljumiseNupp);
+                    FlowPane grupeering = new FlowPane(5, 5);
+                    grupeering.setAlignment(Pos.CENTER);
+                    grupeering.getChildren().add(väljumiseNupp);
 
                     // Teate ja nupu gruppi paigutamine.
-                    VBox vBox = new VBox(10);
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(teade, pane);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(teade, grupeering);
 
                     // Stseeni loomine ja näitamine.
-                    Scene stseen2 = new Scene(vBox);
+                    Scene stseen2 = new Scene(vertikaalne);
                     vihjePilt.setTitle("Vihje");
                     vihjePilt.setScene(stseen2);
                     vihjePilt.show();
@@ -569,7 +569,7 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                 // Aknasündmuse lisamine.
                 nupp.setOnMouseClicked(me -> {
                     mängija.setVõidusumma(summa); // Uuendatakse mängija võidusummat.
-                    label2.setText("Mängija: " + nimi + ". Summa: " + mängija.getVõidusumma()); // Uuendatakse teksti.
+                    teave.setText("Mängija: " + nimi + ". Summa: " + mängija.getVõidusumma()); // Uuendatakse teksti.
                     Stage õigeVastuseLava = new Stage(); // Lava loomine.
                     Label teade = new Label("Tubli! Vastasid õigesti."); // Teate loomine.
                     Button väljumiseNupp = new Button("Jätkan"); // Väljumisenupu loomine.
@@ -581,17 +581,17 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     });
 
                     // Nupu grupeerimine.
-                    FlowPane pane = new FlowPane(5, 5);
-                    pane.setAlignment(Pos.CENTER);
-                    pane.getChildren().add(väljumiseNupp);
+                    FlowPane grupeering = new FlowPane(5, 5);
+                    grupeering.setAlignment(Pos.CENTER);
+                    grupeering.getChildren().add(väljumiseNupp);
 
                     // Teate ja nupu gruppi paigutamine.
-                    VBox vBox = new VBox(10);
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(teade, pane);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(teade, grupeering);
 
                     // Stseeni loomine ja näitamine.
-                    Scene õigeVastuseStseen = new Scene(vBox);
+                    Scene õigeVastuseStseen = new Scene(vertikaalne);
                     õigeVastuseLava.setScene(õigeVastuseStseen);
                     õigeVastuseLava.show();
                 });
@@ -610,17 +610,17 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     });
 
                     // Nupu grupeerimine.
-                    FlowPane pane = new FlowPane(5, 5);
-                    pane.setAlignment(Pos.CENTER);
-                    pane.getChildren().add(väljumiseNupp);
+                    FlowPane grupeering = new FlowPane(5, 5);
+                    grupeering.setAlignment(Pos.CENTER);
+                    grupeering.getChildren().add(väljumiseNupp);
 
                     // Teate ja nupu gruppi paigutamine.
-                    VBox vBox = new VBox(10);
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(teade, pane);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(teade, grupeering);
 
                     // Stseeni loomine ja näitamine.
-                    Scene lahkumiseStseen = new Scene(vBox);
+                    Scene lahkumiseStseen = new Scene(vertikaalne);
                     lahkumiseLava.setScene(lahkumiseStseen);
                     lahkumiseLava.show();
                 });
@@ -639,17 +639,17 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
                     });
 
                     // Nuppude grupeerimine.
-                    FlowPane pane = new FlowPane(10, 10);
-                    pane.setAlignment(Pos.CENTER);
-                    pane.getChildren().addAll(väljumiseNupp);
+                    FlowPane grupeering = new FlowPane(10, 10);
+                    grupeering.setAlignment(Pos.CENTER);
+                    grupeering.getChildren().addAll(väljumiseNupp);
 
                     // Teate ja nuppude gruppi paigutamine.
-                    VBox vBox = new VBox(10);
-                    vBox.setAlignment(Pos.CENTER);
-                    vBox.getChildren().addAll(teade, pane);
+                    VBox vertikaalne = new VBox(10);
+                    vertikaalne.setAlignment(Pos.CENTER);
+                    vertikaalne.getChildren().addAll(teade, grupeering);
 
                     // Stseeni loomine ja näitamine.
-                    Scene valeVastuseStseen = new Scene(vBox);
+                    Scene valeVastuseStseen = new Scene(vertikaalne);
                     valeVastuseLava.setScene(valeVastuseStseen);
                     valeVastuseLava.show();
                     valeVastuseLava.setOnHiding(windowEvent -> System.exit(0));
@@ -674,21 +674,21 @@ public class KesTahabSaadaMiljonäriksV2 extends Application {
      * @param kirjutatav Tekst, mida tahetakse faili kirjutada.
      */
     public static void failiKirjutamine(String kirjutatav){
-        File f = new File("logifail.txt");
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(f, true))) {
-            bw.append(kirjutatav);
-            bw.newLine();
+        File fail = new File("logifail.txt");
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fail, true))) {
+            bufferedWriter.append(kirjutatav);
+            bufferedWriter.newLine();
         } catch (Exception e) {
             Stage failiKirjutamiseLava = new Stage(); // Lava loomine.
             Label teade = new Label("Faili kirjutamisel läks midagi valesti."); // Teate loomine.
 
             // Teate ja nuppude gruppi paigutamine.
-            VBox vBox = new VBox(10);
-            vBox.setAlignment(Pos.CENTER);
-            vBox.getChildren().addAll(teade);
+            VBox vertikaalne = new VBox(10);
+            vertikaalne.setAlignment(Pos.CENTER);
+            vertikaalne.getChildren().addAll(teade);
 
             // Stseeni loomine ja näitamine.
-            Scene failiKirjutamiseStseen = new Scene(vBox);
+            Scene failiKirjutamiseStseen = new Scene(vertikaalne);
             failiKirjutamiseLava.setScene(failiKirjutamiseStseen);
             failiKirjutamiseLava.show();
             failiKirjutamiseLava.setOnHiding(windowEvent -> System.exit(0));
